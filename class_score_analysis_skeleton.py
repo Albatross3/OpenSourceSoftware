@@ -2,18 +2,24 @@ def read_data(filename):
     data = []
     with open(filename,'r') as f:
         for line in f.readlines():
-            data.append(line.split(','))
-    del data[0]
+            if not line.startswith('#'):
+                values=[]
+                for text in line.split(','):
+                    values.append(int(text))
+                data.append(values)
+    return data
         
 
 def add_weighted_average(data, weight):
     for row in data:
-        row.append(0)   # TODO
-
+        total=weight[0]*row[0]+weight[1]*row[1]
+        row.append(total)   # TODO
+        
+      
 def analyze_data(data):
-    mean = 0            # TODO
-    var = 0             # TODO
-    median = 0          # TODO
+    mean = sum(data)/len(data)          # TODO
+    var = sum([(data[i]-mean)**2  for i in range(len(data))])/len(data)             # TODO
+    median =  sorted(data)[int((len(data)+1)/2 - 1)]         # TODO
     return mean, var, median, min(data), max(data)
 
 if __name__ == '__main__':
@@ -42,37 +48,6 @@ if __name__ == '__main__':
                 print(f'  * Min/Max: ({min_:.3f}, {max_:.3f})')
         
         
-        
-data=[]     
-with open("data/class_score_en.csv", 'r') as f:
-    for line in f.readlines():
-        data.append(int(line.strip().split(',')))
+
     
-
-data[0:1]=[]
-del a[0]
-
-data[0][0]
-parseInt(data[0])
- 
-a='hi \n'
-print(a.strip())     
-        
-        
-        
-        
-        
-        
-        
-        
-f=open("data/class_score_en.csv",'r')
-while True:
-    line=f.readline()
-    if not line: break
-    print(line)
-f.close()        
-        
-        
-        
-        
         
