@@ -47,7 +47,7 @@ if __name__ == '__main__':
                 print(f'  * Median: **{median:.3f}**')
                 print(f'  * Min/Max: ({min_:.3f}, {max_:.3f})')
         
-        
 
-    
+
+
         
