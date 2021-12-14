@@ -43,8 +43,8 @@ def load_wdbc_data(filename):
 
 if __name__ == '__main__':
     # Load a dataset
-    #wdbc = datasets.load_breast_cancer()
-    wdbc = load_wdbc_data('data/wdbc.data') # Mission #1) Implement 'load_wdbc_data()'
+    wdbc = datasets.load_breast_cancer()
+    #wdbc = load_wdbc_data('data/wdbc.data') # Mission #1) Implement 'load_wdbc_data()'
 
     # Train a model
     model = svm.SVC()                       # Mission #2) Try at least two different classifiers
